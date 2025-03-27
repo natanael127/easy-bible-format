@@ -1,11 +1,11 @@
 # Easy Bible Format (EBF)
 
-# Introduction
+## Introduction
 - **TODO:** why a new format
 - **TODO:** why over JSON and not XML
 - **TODO:** other formats that this one will be based on
 
-# Structure
+## Structure
 JSON file with following key structure:
 
 - bible
