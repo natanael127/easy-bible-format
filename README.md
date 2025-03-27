@@ -1,5 +1,5 @@
 # Easy Bible Format (EBF)
-Version 1
+Version 1.x.y
 
 ## Introduction
 - **TODO:** why a new format
@@ -7,14 +7,19 @@ Version 1
 - **TODO:** other formats that this one will be based on
 
 ## Versioning
-This file format will be versioned according to [semantic versioning](https://semver.org/).
+This specification will be versioned according to [semantic versioning](https://semver.org/).
 
 On the header of this document will be displayed the major number associated with the current text.
 
 Only git-tagged versions of the specification are in compliance to semantic version, intermediate commits are not necessarily in compliance too.
 
 ## Extension
-The suggested extension 
+The suggested extension of file is `.ebx.json`, where x is the major number of the file format.
+
+Example for major 1:
+```
+bible.ebf1.json
+```
 
 ## Structure
 JSON file with following key structure:
