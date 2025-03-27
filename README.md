@@ -1,9 +1,20 @@
 # Easy Bible Format (EBF)
+Version 1
 
 ## Introduction
 - **TODO:** why a new format
 - **TODO:** why over JSON and not XML
 - **TODO:** other formats that this one will be based on
+
+## Versioning
+This file format will be versioned according to [semantic versioning](https://semver.org/).
+
+On the header of this document will be displayed the major number associated with the current text.
+
+Only git-tagged versions of the specification are in compliance to semantic version, intermediate commits are not necessarily in compliance too.
+
+## Extension
+The suggested extension 
 
 ## Structure
 JSON file with following key structure:
@@ -14,7 +25,7 @@ JSON file with following key structure:
     - books (list): 
         - name (string): Name of the book according to the current translation
         - abbreviation (string): Name of the book according to the current translation
-        - ufsm_id (string): Identifier according to the [UFSM book identifier](https://ubsicap.github.io/usfm/v3.0.2/identification/books.html)
+        - ufsm_id (string): Identifier according to the [USFM book identifier](https://ubsicap.github.io/usfm/v3.0.2/identification/books.html)
         - chapters (list): List of chapters already in the correct display order
             - comments (string): Comments about the chapter at all
             - verses (list): List of verses already in the correct display order
