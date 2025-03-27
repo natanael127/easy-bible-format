@@ -19,6 +19,7 @@ JSON file with following key structure:
             - comments (string): Comments about the chapter at all
             - verses (list): List of verses already in the correct display order
                 - text (string): The text content of the verse
+                - section_title (string): Title of a section of verses, starting on this one
                 - comment (string): Comments about the specific verse
                 - references (list):
                     - **TODO:** create a structure for cross references (use ufsm_id)
