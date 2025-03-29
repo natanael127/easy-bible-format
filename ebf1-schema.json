@@ -1,0 +1,66 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "bible": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "language": { "type": "string", "pattern": "^[a-z]{2}$" },
+                "books": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": { "type": "string" },
+                            "abbreviation": { "type": "string" },
+                            "usfm_id": { "type": "string" },
+                            "chapters": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "comments": { "type": "string" },
+                                        "verses": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "text": { "type": "string" },
+                                                    "section_title": { "type": "string" },
+                                                    "comment": { "type": "string" },
+                                                    "references": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "ufsm_id": { "type": "string" },
+                                                                "chapter": { "type": "integer" },
+                                                                "verse": { "type": "integer" }
+                                                            },
+                                                            "required": ["ufsm_id", "chapter", "verse"]
+                                                        }
+                                                    }
+                                                },
+                                                "required": ["text"]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "required": ["name", "abbreviation", "ufsm_id", "chapters"]
+                    }
+                }
+            },
+            "required": ["name", "language", "books"]
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "file_hash": { "type": "string" }
+            }
+        }
+    },
+    "required": ["bible"]
+}
