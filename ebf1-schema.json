@@ -1,5 +1,5 @@
 {
-    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema",
     "type": "object",
     "properties": {
         "bible": {
@@ -34,11 +34,11 @@
                                                         "items": {
                                                             "type": "object",
                                                             "properties": {
-                                                                "ufsm_id": { "type": "string" },
+                                                                "usfm_id": { "type": "string" },
                                                                 "chapter": { "type": "integer" },
                                                                 "verse": { "type": "integer" }
                                                             },
-                                                            "required": ["ufsm_id", "chapter", "verse"]
+                                                            "required": ["usfm_id", "chapter", "verse"]
                                                         }
                                                     }
                                                 },
@@ -49,7 +49,7 @@
                                 }
                             }
                         },
-                        "required": ["name", "abbreviation", "ufsm_id", "chapters"]
+                        "required": ["name", "abbreviation", "usfm_id", "chapters"]
                     }
                 }
             },
