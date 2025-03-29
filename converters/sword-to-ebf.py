@@ -20,13 +20,18 @@ def generate_dict(source_file):
     for book in books:
         print(f"Processing book: {book.name}")
         chapters = []
-        for chapter in range(1, book.num_chapters+1):
+        for chapter in range(1, book.num_chapters + 1):
             verses = []
-            for verse in range(1, len(book.get_indicies(chapter))+1 ):
-                verses.append(
-                    bible.get(books=[book.name], chapters=[chapter], verses=[verse])
-                )
-            chapters.append(verses)
+            for verse in range(1, len(book.get_indicies(chapter)) + 1):
+                verses.append({
+                    "text": bible.get(
+                        books=[book.name],
+                        chapters=[chapter],
+                        verses=[verse]
+                    ),
+                })
+            chapters.append({"verses": verses})
+        # TODO: get USFM id of the book
         books_out_list.append({
             'name': book.name,
             'abbreviation': book.preferred_abbreviation,
