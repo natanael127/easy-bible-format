@@ -22,6 +22,7 @@ bible.ebf1.json
 ```
 
 ## Structure
+- **TODO:**: remove it, just point to schema.json
 JSON file with following key structure:
 
 - bible
@@ -41,3 +42,11 @@ JSON file with following key structure:
                     - **TODO:** create a structure for cross references (use ufsm_id)
 - metadata
     - **TODO:** create a structure for some computational metadata link input file hash
+
+## Validate
+To validate your EBF data against the JSON schema:
+
+```
+npm install -g ajv-cli
+ajv validate -s ebf1-schema.json -d <your-ebf-file.json>
+```
