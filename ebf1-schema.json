@@ -36,7 +36,7 @@
                                 "items": {
                                     "type": "object",
                                     "properties": {
-                                        "comments": { "type": "string" },
+                                        "comment": { "type": "string" },
                                         "verses": {
                                             "type": "array",
                                             "items": {
