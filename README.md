@@ -30,13 +30,13 @@ JSON file with following key structure:
     - books (list): 
         - name (string): Name of the book according to the current translation
         - abbreviation (string): Name of the book according to the current translation
-        - ufsm_id (string): Identifier according to the [USFM book identifier](https://ubsicap.github.io/usfm/v3.0.2/identification/books.html)
+        - usfm_id (string): Identifier according to the [USFM book identifier](https://ubsicap.github.io/usfm/v3.0.2/identification/books.html)
         - chapters (list): List of chapters already in the correct display order
-            - comments (string): Comments about the chapter at all
+            - comment (string): Comment about the chapter at all
             - verses (list): List of verses already in the correct display order
                 - text (string): The text content of the verse
                 - section_title (string): Title of a section of verses, starting on this one
-                - comment (string): Comments about the specific verse
+                - comment (string): Comment about the specific verse
                 - references (list):
                     - **TODO:** create a structure for cross references (use ufsm_id)
 - metadata
