@@ -5,9 +5,10 @@ Version 1.x.y
 This document specifies the Easy Bible Format (EBF), a new, modern, and developer-friendly format for representing biblical texts. EBF aims to simplify the parsing and manipulation of scripture data by leveraging the widely adopted JSON (JavaScript Object Notation) format.
 
 ## Base formats
-- **SWORD:** The SWORD Project is a cross-platform Bible software API and toolset. It uses a proprietary file format that, while powerful, can be complex to parse and integrate into modern web and mobile applications.
-- **USFM (Unified Scripture Format Markers):** USFM is a markup language designed for representing scripture texts, primarily used in Bible translation projects. It employs a system of markers to denote structural elements like verses, chapters, and paragraphs. While robust, USFM's marker-based syntax can be challenging for developers unfamiliar with it.
-- **USFX (Unified Scripture Format XML):** USFX is an XML-based representation of USFM. It aims to provide a more structured and standardized format. However, XML can be verbose and less efficient to parse compared to JSON, particularly in web environments.
+- **[SWORD](https://www.crosswire.org/sword/):** The SWORD Project is a cross-platform Bible software API and toolset. It uses a proprietary file format that, while powerful, can be complex to parse and integrate into modern web and mobile applications.
+- **[USFM (Unified Scripture Format Markers)](https://ubsicap.github.io/usfm/):** USFM is a markup language designed for representing scripture texts, primarily used in Bible translation projects. It employs a system of markers to denote structural elements like verses, chapters, and paragraphs. While robust, USFM's marker-based syntax can be challenging for developers unfamiliar with it.
+- **[USFX (Unified Scripture Format XML)](https://ebible.org/usfx/):** USFX is an XML-based representation of USFM. It aims to provide a more structured and standardized format. However, XML can be verbose and less efficient to parse compared to JSON, particularly in web environments.
+- **[OSIS (Open Scripture Information Standard)](https://www.crosswire.org/osis/):** OSIS is an XML-based standard for encoding biblical texts and related resources. It provides a structured and extensible format for representing scripture, including annotations, cross-references, and other metadata. While comprehensive, the complexity of XML can present parsing challenges compared to JSON.
 
 ## Why a new format?
 Why JSON?
@@ -31,6 +32,19 @@ Only git-tagged versions of the specification are in compliance with semantic ve
 The suggested file extension is `.ebfx.json`, where 'x' represents the major version number of the file format.
 
 Example for major version 1:
+```
+bible.ebf1.json
+```
+
+## Schema
+The JSON schema is stored in this repository within the documentation directory.
+
+To validate your EBF data against the JSON schema:
+
+```
+npm install -g ajv-cli
+ajv validate -s ebf1-schema.json -d <your-ebf-file.json>
+```
 ```
 bible.ebf1.json
 ```
