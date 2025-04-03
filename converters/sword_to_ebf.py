@@ -19,26 +19,31 @@ def generate_dict(source_file):
 
     for book in books:
         print(f"Processing book: {book.name}")
+        all_verses_empty = True
         chapters = []
         for chapter in range(1, book.num_chapters + 1):
             verses = []
             for verse in range(1, len(book.get_indicies(chapter)) + 1):
-                verses.append({
-                    "text": bible.get(
-                        books=[book.name],
-                        chapters=[chapter],
-                        verses=[verse]
-                    ),
-                })
+                verse_text = bible.get(
+                    books=[book.name],
+                    chapters=[chapter],
+                    verses=[verse]
+                )
+                if verse_text:
+                    all_verses_empty = False
+                verses.append({"text": verse_text,})
             chapters.append({"verses": verses})
-        # TODO: get actual USFM id of the book
-        books_out_list.append({
-            'names': [book.name],
-            'usfm_id': book.name,
-            'abbreviation': book.preferred_abbreviation,
-            'chapters': chapters
-        })
-    
+        if not all_verses_empty:
+            # TODO: get actual USFM id of the book
+            books_out_list.append({
+                'names': [book.name],
+                'usfm_id': book.name,
+                'abbreviation': book.preferred_abbreviation,
+                'chapters': chapters
+            })
+        else:
+            print(f"Book {book.name} is empty, skipping.")
+
     return bib
 
 def write_json(bible_dict, output_file):
