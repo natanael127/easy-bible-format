@@ -10,7 +10,7 @@ def generate_dict(source_file):
     bible_version = list(found_modules.keys())[0]
     bible = modules.get_bible_from_module(bible_version)
 
-    books = bible.get_structure()._books['ot'] + bible.get_structure()._books['nt']
+    books = bible.get_structure()._books.get('ot',[]) + bible.get_structure()._books.get('nt',[])
 
     bib = {'bible': {}}
     bib['bible']['name'] = bible_version
