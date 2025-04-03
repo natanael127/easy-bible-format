@@ -42,8 +42,14 @@ def generate_dict(source_file):
     return bib
 
 def write_json(bible_dict, output_file):
-    with open(output_file, 'w') as outfile:  
+    with open(output_file, 'w') as outfile:
         json.dump(bible_dict, outfile, indent=4)
+
+def converter(input_path, output_path):
+    bible_dict = generate_dict(input_path)
+    write_json(bible_dict, output_path)
+
+    print(f"Arquivo JSON gerado: {output_path}")
 
 
 def main():
@@ -62,8 +68,7 @@ def main():
         output_file = base_name + '.json'
         print(f"Saída padrão: {output_file}")
 
-    bible_dict = generate_dict(args.input)
-    write_json(bible_dict, output_file)
+    converter(args.input, output_file)
 
 if __name__ == "__main__":
     main()
