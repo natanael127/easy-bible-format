@@ -31,9 +31,10 @@ def generate_dict(source_file):
                     ),
                 })
             chapters.append({"verses": verses})
-        # TODO: get USFM id of the book
+        # TODO: get actual USFM id of the book
         books_out_list.append({
-            'name': book.name,
+            'names': [book.name],
+            'usfm_id': book.name,
             'abbreviation': book.preferred_abbreviation,
             'chapters': chapters
         })

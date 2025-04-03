@@ -96,7 +96,7 @@ def main(txt_dir, json_dir, csv_dir):
         for k, book_name in enumerate(books_list):
             book_parsed = parse_book_name(book_name)
             this_book_dict = {
-                "name": book_parsed,
+                "names": [book_parsed],
                 "abbreviation": ABBREVIATION[k],
                 "usfm_id": USFM_IDS[k],
                 "chapters": [],
