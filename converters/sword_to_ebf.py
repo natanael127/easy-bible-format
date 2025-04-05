@@ -8,12 +8,14 @@ def generate_dict(source_file):
     modules = SwordModules(source_file)
     found_modules = modules.parse_modules()
     bible_version = list(found_modules.keys())[0]
+    bible_metadata = found_modules[bible_version]
     bible = modules.get_bible_from_module(bible_version)
 
     books = bible.get_structure()._books.get('ot',[]) + bible.get_structure()._books.get('nt',[])
 
     bib = {'bible': {}}
-    bib['bible']['name'] = bible_version
+    bib['bible']['name'] = bible_metadata.get('description', bible_version)
+    bib['bible']['language'] = bible_metadata.get('lang', '')
     bib['bible']['books'] = []
     books_out_list = bib['bible']['books']
 
