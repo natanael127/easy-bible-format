@@ -41,6 +41,7 @@
                                 "items": {
                                     "type": "object",
                                     "properties": {
+                                        "title": { "type": "string" },
                                         "comment": { "type": "string" },
                                         "verses": {
                                             "type": "array",
@@ -48,7 +49,7 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "text": { "type": "string" },
-                                                    "section_title": { "type": "string" },
+                                                    "title": { "type": "string" },
                                                     "comment": { "type": "string" },
                                                     "references": {
                                                         "type": "array",
