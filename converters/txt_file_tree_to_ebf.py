@@ -114,7 +114,7 @@ def main(txt_dir, json_dir, csv_dir):
                 this_book_dict["chapters"].append({"verses": obj_verses})
             books_dict.append(this_book_dict)
         bibles_data.append(out_dict)
-        out_path = os.path.join(json_dir, bible_name + ".json")
+        out_path = os.path.join(json_dir, bible_name + ".ebf1.json")
         with open(out_path, 'w', encoding='utf-8') as f:
             json.dump(out_dict, f, ensure_ascii=False, indent=4)
 
