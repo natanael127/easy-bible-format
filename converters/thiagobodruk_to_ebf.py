@@ -316,7 +316,13 @@ def convert_thiagobodruk_to_ebf(input_file, output_file=None):
             for verse_text in chapter_verses:
                 ebf_verses.append({"text": verse_text})
             ebf_chapters.append({"verses": ebf_verses})
-        
+
+        # Maiúscula apenas na primeira letra para o EBF
+        for i, char in enumerate(abbrev):
+            if char.isalpha():
+                abbrev = abbrev[:i] + char.upper() + abbrev[i+1:]
+                break
+
         # Adicionar livro ao EBF
         ebf_book = {
             "names": [book_name],
