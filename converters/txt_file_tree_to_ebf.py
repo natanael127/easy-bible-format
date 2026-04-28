@@ -83,15 +83,23 @@ def main(txt_dir, json_dir, csv_dir):
     bibles_list = os.listdir(txt_dir)
     bibles_list = [bible for bible in bibles_list if os.path.isdir(os.path.join(txt_dir, bible))]
     bibles_list.sort()
-    for bible_name in bibles_list:
-        bible_path = os.path.join(txt_dir, bible_name)
+    for bible_dir in bibles_list:
+        bible_path = os.path.join(txt_dir, bible_dir)
+
+        bible_name = bible_dir
+        name_file_path = os.path.join(bible_path, "nome.txt")
+        if os.path.exists(name_file_path):
+            with open(name_file_path, 'r', encoding='utf-8') as f:
+                bible_name = f.read().strip()
         out_dict = {"bible": {}}
         bible_dict = out_dict["bible"]
         bible_dict["name"] = bible_name
         bible_dict["language"] = "pt"
         bible_dict["books"] = []
         books_dict = bible_dict["books"]
-        books_list = os.listdir(bible_path)
+
+        # Books list: just dirs (no files)
+        books_list = [book for book in os.listdir(bible_path) if os.path.isdir(os.path.join(bible_path, book))]
         books_list.sort()
         for k, book_name in enumerate(books_list):
             book_parsed = parse_book_name(book_name)
@@ -114,7 +122,7 @@ def main(txt_dir, json_dir, csv_dir):
                 this_book_dict["chapters"].append({"verses": obj_verses})
             books_dict.append(this_book_dict)
         bibles_data.append(out_dict)
-        out_path = os.path.join(json_dir, bible_name + ".ebf1.json")
+        out_path = os.path.join(json_dir, bible_dir + ".ebf1.json")
         with open(out_path, 'w', encoding='utf-8') as f:
             json.dump(out_dict, f, ensure_ascii=False, indent=4)
 
