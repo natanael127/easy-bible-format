@@ -4,6 +4,11 @@ from pysword.modules import SwordModules
 import argparse
 import json
 
+try:
+    from .language import to_iso_639_3
+except ImportError:  # executado como script
+    from language import to_iso_639_3
+
 
 USFM_ID_LOOKUP_TABLE = [
     {
@@ -409,7 +414,7 @@ def generate_dict(source_file):
 
     bib = {'bible': {}}
     bib['bible']['name'] = bible_metadata.get('description', bible_version)
-    bib['bible']['language'] = bible_metadata.get('lang', '')
+    bib['bible']['language'] = to_iso_639_3(bible_metadata.get('lang', ''))
     bib['bible']['books'] = []
     books_out_list = bib['bible']['books']
 

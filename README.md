@@ -36,6 +36,11 @@ Example for major version 1:
 bible.ebf1.json
 ```
 
+## Language
+The `bible.language` field holds the three-letter [ISO 639-3](https://iso639-3.sil.org/) code of the text, in lowercase (e.g. `por` for Portuguese, `eng` for English). Use `und` when the language is undetermined.
+
+The converters in `converters/` normalize the codes found in their sources (ISO 639-1, ISO 639-2/B or tags with region such as `pt-BR`) with `converters/language.py`.
+
 ## Schema
 The JSON schema is stored in this repository within the documentation directory.
 

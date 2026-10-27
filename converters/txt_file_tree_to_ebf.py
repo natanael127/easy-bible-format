@@ -94,7 +94,7 @@ def main(txt_dir, json_dir, csv_dir):
         out_dict = {"bible": {}}
         bible_dict = out_dict["bible"]
         bible_dict["name"] = bible_name
-        bible_dict["language"] = "pt"
+        bible_dict["language"] = "por"
         bible_dict["books"] = []
         books_dict = bible_dict["books"]
 

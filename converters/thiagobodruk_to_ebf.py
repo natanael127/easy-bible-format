@@ -2,6 +2,11 @@ import json
 import argparse
 import os
 
+try:
+    from .language import to_iso_639_3
+except ImportError:  # executado como script
+    from language import to_iso_639_3
+
 # Mapeamento de abreviações do formato thiagobodruk para USFM IDs
 ABBREV_TO_USFM = {
     # Antigo Testamento
@@ -220,10 +225,10 @@ VERSION_NAMES = {
 
 
 def detect_language_from_filename(filename):
-    """Detecta o idioma com base no nome do arquivo."""
+    """Detecta o idioma (ISO 639-3) com base no nome do arquivo."""
     basename = os.path.basename(filename)
     name_without_ext = os.path.splitext(basename)[0]
-    return LANGUAGE_MAP.get(name_without_ext, "en")
+    return to_iso_639_3(LANGUAGE_MAP.get(name_without_ext, "en"))
 
 
 def detect_version_name(filename):
@@ -255,7 +260,7 @@ def convert_thiagobodruk_to_ebf(input_file, output_file=None):
     {
         "bible": {
             "name": "Bible Version Name",
-            "language": "pt",
+            "language": "por",
             "books": [
                 {
                     "names": ["Genesis"],
