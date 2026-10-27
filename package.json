@@ -1,0 +1,11 @@
+{
+    "name": "easy-bible-format",
+    "private": true,
+    "description": "Easy Bible Format (EBF): specification and JSON schema",
+    "license": "MIT",
+    "repository": "github:natanael127/easy-bible-format",
+    "files": ["ebf1-schema.json"],
+    "exports": {
+        "./ebf1-schema.json": "./ebf1-schema.json"
+    }
+}

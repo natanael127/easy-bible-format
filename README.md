@@ -44,6 +44,16 @@ The converters in `converters/` normalize the codes found in their sources (ISO 
 ## Schema
 The JSON schema is stored in this repository within the documentation directory.
 
+JavaScript/TypeScript projects can depend on a specific commit of this repository and import the schema:
+
+```
+npm install github:natanael127/easy-bible-format#<commit>
+```
+
+```js
+import ebf1Schema from 'easy-bible-format/ebf1-schema.json' with { type: 'json' };
+```
+
 To validate your EBF data against the JSON schema:
 
 ```
