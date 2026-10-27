@@ -44,6 +44,17 @@ The converters in `converters/` normalize the codes found in their sources (ISO 
 ## Schema
 The JSON schema is stored in this repository within the documentation directory.
 
+Besides types and required fields, the schema enforces:
+- no properties other than the ones specified, at any level;
+- at least one book, one chapter per book and one verse per chapter (`verses` is required);
+- non-empty Bible name, book names, chapter titles and comments, without leading or trailing whitespace; book names are unique within the book;
+- book abbreviations without whitespace (references such as `Mt 5,3` are split at the first space);
+- verse text without leading or trailing whitespace; it may be empty for verses kept only for numbering;
+- non-empty verse titles and comments (comments without leading or trailing whitespace);
+- cross-references, when present, as a non-empty list with chapter and verse starting at 1.
+
+Uniqueness of `usfm_id` across books cannot be expressed in JSON Schema and must be checked separately.
+
 JavaScript/TypeScript projects can depend on a specific commit of this repository and import the schema:
 
 ```
