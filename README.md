@@ -50,13 +50,3 @@ To validate your EBF data against the JSON schema:
 npm install -g ajv-cli
 ajv validate -s ebf1-schema.json -d <your-ebf-file.json>
 ```
-
-## Schema
-The JSON schema is stored in this repository within the documentation directory.
-
-To validate your EBF data against the JSON schema:
-
-```
-npm install -g ajv-cli
-ajv validate -s ebf1-schema.json -d <your-ebf-file.json>
-```
